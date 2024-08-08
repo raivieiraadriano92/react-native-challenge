@@ -2,7 +2,7 @@ import type { FunctionComponent } from "react";
 
 import {
   CompositeScreenProps,
-  NavigatorScreenParams,
+  NavigatorScreenParams
 } from "@react-navigation/native";
 
 import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
