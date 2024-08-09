@@ -8,4 +8,5 @@ export type Story = {
   story_title: string;
   story_url: string;
   created_at: string;
+  isDeleted?: boolean;
 };
