@@ -14,7 +14,7 @@ type StoriesStoreState = {
     ios: boolean;
   };
   fetch: () => Promise<void>;
-  markAsDeleted: (_objectID: string) => void;
+  toggleDeleted: (_objectID: string) => void;
   toggleFavorite: (_story: Story) => void;
 };
 
@@ -57,18 +57,27 @@ export const useStoriesStore = create<StoriesStoreState>()(
           list: response.data.hits
         }));
       },
-      markAsDeleted: (objectID) =>
+      toggleDeleted: (objectID) =>
         set((state) => {
           const draftList = [...state.list];
+
+          let draftFavorites = [...state.favorites];
 
           const storyIndex = draftList.findIndex(
             (story) => story.objectID === objectID
           );
 
-          draftList[storyIndex].isDeleted = true;
+          draftList[storyIndex].isDeleted = !draftList[storyIndex].isDeleted;
+
+          if (draftList[storyIndex].isDeleted) {
+            draftFavorites = draftFavorites.filter(
+              (story) => story.objectID !== objectID
+            );
+          }
 
           return {
-            list: draftList
+            list: draftList,
+            favorites: draftFavorites
           };
         }),
       toggleFavorite: (story) =>

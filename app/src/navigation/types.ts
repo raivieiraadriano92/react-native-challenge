@@ -11,6 +11,7 @@ import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 export type RootStackParamList = {
   Article: Pick<Story, "story_url">;
+  DeletedArticles: undefined;
   Tabs: undefined | NavigatorScreenParams<TabParamList>;
 };
 

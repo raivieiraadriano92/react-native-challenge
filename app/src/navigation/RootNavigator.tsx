@@ -7,6 +7,7 @@ import {
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ArticleScreen } from "src/screens/ArticleScreen";
+import { DeletedArticlesScreen } from "src/screens/DeletedArticlesScreen";
 
 import { TabNavigator } from "./TabNavigator";
 
@@ -32,6 +33,11 @@ export const RootNavigator: FunctionComponent = () => (
         options={{ headerShown: false }}
       />
       <NativeStack.Screen component={ArticleScreen} name="Article" />
+      <NativeStack.Screen
+        component={DeletedArticlesScreen}
+        name="DeletedArticles"
+        options={{ title: "Deleted Articles" }}
+      />
     </NativeStack.Navigator>
   </NavigationContainer>
 );
