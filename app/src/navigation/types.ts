@@ -22,6 +22,7 @@ export type RootStackScreen<RouteName extends keyof RootStackParamList> =
 
 export type TabParamList = {
   Articles: undefined;
+  Favorites: undefined;
   Settings: undefined;
 };
 

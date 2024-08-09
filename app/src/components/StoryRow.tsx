@@ -39,9 +39,9 @@ export const StoryRow: FunctionComponent<StoryRowProps> = ({
     {!!onPressFavorite && (
       <TouchableOpacity onPress={onPressFavorite}>
         <FontAwesome
+          color={colors.amber[400]}
           name={isFavorite ? "star" : "star-o"}
           size={24}
-          color={colors.amber[400]}
         />
       </TouchableOpacity>
     )}
