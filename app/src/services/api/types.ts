@@ -3,5 +3,9 @@ export type Response = {
 };
 
 export type Story = {
-  story_id: number;
+  author: string;
+  objectID: string;
+  story_title: string;
+  story_url: string;
+  created_at: string;
 };

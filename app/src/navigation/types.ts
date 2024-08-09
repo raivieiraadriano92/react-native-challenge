@@ -4,12 +4,13 @@ import {
   CompositeScreenProps,
   NavigatorScreenParams
 } from "@react-navigation/native";
+import { Story } from "src/services/api/types";
 
 import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 export type RootStackParamList = {
-  Article: undefined;
+  Article: Pick<Story, "story_url">;
   Tabs: undefined | NavigatorScreenParams<TabParamList>;
 };
 
