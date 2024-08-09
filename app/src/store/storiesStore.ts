@@ -6,7 +6,7 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 type StoriesStoreState = {
-  favorites: string[];
+  favorites: Story[];
   isFeching: boolean;
   list: Story[];
   preferences: {
@@ -15,7 +15,7 @@ type StoriesStoreState = {
   };
   fetch: () => Promise<void>;
   markAsDeleted: (_objectID: string) => void;
-  toggleFavorite: (_objectID: string) => void;
+  toggleFavorite: (_story: Story) => void;
 };
 
 const STORAGE_KEY = "storiesStore";
@@ -71,14 +71,16 @@ export const useStoriesStore = create<StoriesStoreState>()(
             list: draftList
           };
         }),
-      toggleFavorite: (objectID) =>
+      toggleFavorite: (story) =>
         set((state) => {
           const favoritesDraft = [...state.favorites];
 
-          const index = favoritesDraft.findIndex((id) => id === objectID);
+          const index = favoritesDraft.findIndex(
+            (favorite) => favorite.objectID === story.objectID
+          );
 
           if (index === -1) {
-            favoritesDraft.push(objectID);
+            favoritesDraft.push(story);
           } else {
             favoritesDraft.splice(index, 1);
           }

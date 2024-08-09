@@ -6,22 +6,17 @@ import { useStoriesStore } from "src/store/storiesStore";
 export const FavoritesTab: TabScreen<"Favorites"> = ({ navigation }) => {
   const storiesStore = useStoriesStore();
 
-  const favorites = storiesStore.list.filter(
-    (story) => storiesStore.favorites.includes(story.objectID),
-    []
-  );
-
   return (
     <FlatList
-      data={favorites}
+      data={storiesStore.favorites}
       keyExtractor={(item) => item.objectID}
       renderItem={({ item }) => (
         <StoryRow
-          isFavorite={storiesStore.favorites.includes(item.objectID)}
+          isFavorite
           onPress={() =>
             navigation.navigate("Article", { story_url: item.story_url })
           }
-          onPressFavorite={() => storiesStore.toggleFavorite(item.objectID)}
+          onPressFavorite={() => storiesStore.toggleFavorite(item)}
           story={item}
         />
       )}

@@ -16,16 +16,23 @@ export const ArticlesTab: TabScreen<"Articles"> = ({ navigation }) => {
     <FlatList
       data={storiesStore.list}
       keyExtractor={(item) => item.objectID}
-      renderItem={({ item }) => (
-        <StoryRow
-          isFavorite={storiesStore.favorites.includes(item.objectID)}
-          onPress={() =>
-            navigation.navigate("Article", { story_url: item.story_url })
-          }
-          onPressFavorite={() => storiesStore.toggleFavorite(item.objectID)}
-          story={item}
-        />
-      )}
+      renderItem={({ item }) => {
+        const isFavorite =
+          storiesStore.favorites.findIndex(
+            (favorite) => favorite.objectID === item.objectID
+          ) !== -1;
+
+        return (
+          <StoryRow
+            isFavorite={isFavorite}
+            onPress={() =>
+              navigation.navigate("Article", { story_url: item.story_url })
+            }
+            onPressFavorite={() => storiesStore.toggleFavorite(item)}
+            story={item}
+          />
+        );
+      }}
       showsVerticalScrollIndicator={false}
     />
   );
