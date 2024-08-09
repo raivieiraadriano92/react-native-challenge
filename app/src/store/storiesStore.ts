@@ -15,6 +15,8 @@ type StoriesStoreState = {
     ios: boolean;
   };
   fetch: (_refresh?: boolean) => Promise<void>;
+  toggleAndroid: (_: boolean) => void;
+  toggleIOS: (_: boolean) => void;
   toggleDeleted: (_objectID: string) => void;
   toggleFavorite: (_story: Story) => void;
 };
@@ -52,7 +54,7 @@ export const useStoriesStore = create<StoriesStoreState>()(
         }
 
         if (query.length === 0) {
-          query.push();
+          query.push("mobile");
         }
 
         const response = await fetchStories(query.join(","));
@@ -64,6 +66,20 @@ export const useStoriesStore = create<StoriesStoreState>()(
           list: response.data.hits
         }));
       },
+      toggleAndroid: (value) =>
+        set((state) => ({
+          preferences: {
+            ...state.preferences,
+            android: value
+          }
+        })),
+      toggleIOS: (value) =>
+        set((state) => ({
+          preferences: {
+            ...state.preferences,
+            ios: value
+          }
+        })),
       toggleDeleted: (objectID) =>
         set((state) => {
           const draftList = [...state.list];
