@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect } from "react";
 
-import { FlatList, Text, TouchableOpacity } from "react-native";
+import { FlatList, RefreshControl, Text, TouchableOpacity } from "react-native";
 import { StoryRow } from "src/components/StoryRow";
 import { TabScreen } from "src/navigation/types";
 import { useStoriesStore } from "src/store/storiesStore";
@@ -31,6 +31,12 @@ export const ArticlesTab: TabScreen<"Articles"> = ({ navigation }) => {
     <FlatList
       data={list}
       keyExtractor={(item) => item.objectID}
+      refreshControl={
+        <RefreshControl
+          refreshing={storiesStore.isRefreshing}
+          onRefresh={() => storiesStore.fetch(true)}
+        />
+      }
       renderItem={({ item }) => {
         const isFavorite =
           storiesStore.favorites.findIndex(

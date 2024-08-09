@@ -8,12 +8,13 @@ import { createJSONStorage, persist } from "zustand/middleware";
 type StoriesStoreState = {
   favorites: Story[];
   isFeching: boolean;
+  isRefreshing: boolean;
   list: Story[];
   preferences: {
     android: boolean;
     ios: boolean;
   };
-  fetch: () => Promise<void>;
+  fetch: (_refresh?: boolean) => Promise<void>;
   toggleDeleted: (_objectID: string) => void;
   toggleFavorite: (_story: Story) => void;
 };
@@ -26,12 +27,17 @@ export const useStoriesStore = create<StoriesStoreState>()(
       favorites: [],
       list: [],
       isFeching: false,
+      isRefreshing: false,
       preferences: {
         android: Platform.OS === "android",
         ios: Platform.OS === "ios"
       },
-      fetch: async () => {
-        set((state) => ({ ...state, isFeching: true }));
+      fetch: async (refresh) => {
+        set((state) => ({
+          ...state,
+          isFeching: true,
+          isRefreshing: !!refresh
+        }));
 
         const { android, ios } = get().preferences;
 
@@ -54,6 +60,7 @@ export const useStoriesStore = create<StoriesStoreState>()(
         set((state) => ({
           ...state,
           isFeching: false,
+          isRefreshing: false,
           list: response.data.hits
         }));
       },
@@ -94,7 +101,11 @@ export const useStoriesStore = create<StoriesStoreState>()(
             favoritesDraft.splice(index, 1);
           }
 
-          return { favorites: favoritesDraft };
+          return {
+            favorites: favoritesDraft.sort(
+              (a, b) => b.created_at_i - a.created_at_i
+            )
+          };
         })
     }),
     {
