@@ -18,9 +18,11 @@ export const ArticlesTab: TabScreen<"Articles"> = ({ navigation }) => {
       keyExtractor={(item) => item.objectID}
       renderItem={({ item }) => (
         <StoryRow
+          isFavorite={storiesStore.favorites.includes(item.objectID)}
           onPress={() =>
             navigation.navigate("Article", { story_url: item.story_url })
           }
+          onPressFavorite={() => storiesStore.toggleFavorite(item.objectID)}
           story={item}
         />
       )}
