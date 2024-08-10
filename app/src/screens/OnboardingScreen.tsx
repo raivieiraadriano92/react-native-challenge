@@ -3,7 +3,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { RootStackScreen } from "src/navigation/types";
-import { requestNotificationsPermissions } from "src/notifications";
+import { requestNotificationsPermissions } from "src/services/notifications";
 import { useGeneralStore } from "src/store/generalStore";
 
 export const OnboardingScreen: RootStackScreen<"Onboarding"> = ({
