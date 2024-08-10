@@ -19,7 +19,7 @@ const mockStory: Story = {
 const mockDeletedStory: Story = {
   ...mockStory,
   story_title: "Deleted Story",
-  objectID: Math.random().toString(),
+  objectID: "41195222",
   isDeleted: true
 };
 

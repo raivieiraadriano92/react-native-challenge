@@ -8,7 +8,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "tsc && eslint .",
-    "test": "jest --watchAll"
+    "test": "jest"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
