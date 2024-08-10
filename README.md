@@ -1,3 +1,7 @@
+# Project Setup
+
+The detailed instructions for setup the project are defined in the `app/README.md` file.
+
 # React Native Technical Test
 
 Welcome to the React Native Technical Test! This test is designed to assess your knowledge and skills in react native development.
