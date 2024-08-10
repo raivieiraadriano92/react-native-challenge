@@ -1,20 +1,38 @@
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
-import { FlatList, RefreshControl, Text, TouchableOpacity } from "react-native";
+import {
+  ActivityIndicator,
+  FlatList,
+  RefreshControl,
+  Text,
+  TouchableOpacity,
+  View
+} from "react-native";
+import { OfflineWarning } from "src/components/OfflineWarning";
 import { StoryRow } from "src/components/StoryRow";
+import { useInternetStatus } from "src/hooks/useInternetStatus";
 import { TabScreen } from "src/navigation/types";
 import { useStoriesStore } from "src/store/storiesStore";
 
 export const ArticlesTab: TabScreen<"Articles"> = ({ navigation }) => {
   const storiesStore = useStoriesStore();
 
+  const { isOffline } = useInternetStatus();
+
+  const [isFetched, setIsFetched] = useState(false);
+
   const list = storiesStore.list.filter((story) => !story.isDeleted);
 
   useEffect(() => {
-    console.log("fetching");
+    if (!isOffline && !isFetched) {
+      console.log("fetching");
 
-    storiesStore.fetch();
-  }, []);
+      setIsFetched(true);
+
+      storiesStore.fetch();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOffline, isFetched]);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -30,35 +48,43 @@ export const ArticlesTab: TabScreen<"Articles"> = ({ navigation }) => {
   }, [navigation]);
 
   return (
-    <FlatList
-      data={list}
-      keyExtractor={(item) => item.objectID}
-      refreshControl={
-        <RefreshControl
-          refreshing={storiesStore.isRefreshing}
-          onRefresh={() => storiesStore.fetch(true)}
-        />
-      }
-      renderItem={({ item }) => {
-        const isFavorite =
-          storiesStore.favorites.findIndex(
-            (favorite) => favorite.objectID === item.objectID
-          ) !== -1;
-
-        return (
-          <StoryRow
-            isFavorite={isFavorite}
-            onPress={() =>
-              navigation.navigate("Article", { story_url: item.story_url })
-            }
-            onPressDelete={() => storiesStore.toggleDeleted(item.objectID)}
-            onPressFavorite={() => storiesStore.toggleFavorite(item)}
-            story={item}
-            testID={`story-${item.objectID}`}
+    <>
+      {storiesStore.isFeching && (
+        <View className="p-6">
+          <ActivityIndicator />
+        </View>
+      )}
+      <FlatList
+        ListHeaderComponent={isOffline ? <OfflineWarning /> : undefined}
+        data={list}
+        keyExtractor={(item) => item.objectID}
+        refreshControl={
+          <RefreshControl
+            refreshing={storiesStore.isRefreshing}
+            onRefresh={() => storiesStore.fetch(true)}
           />
-        );
-      }}
-      showsVerticalScrollIndicator={false}
-    />
+        }
+        renderItem={({ item }) => {
+          const isFavorite =
+            storiesStore.favorites.findIndex(
+              (favorite) => favorite.objectID === item.objectID
+            ) !== -1;
+
+          return (
+            <StoryRow
+              isFavorite={isFavorite}
+              onPress={() =>
+                navigation.navigate("Article", { story_url: item.story_url })
+              }
+              onPressDelete={() => storiesStore.toggleDeleted(item.objectID)}
+              onPressFavorite={() => storiesStore.toggleFavorite(item)}
+              story={item}
+              testID={`story-${item.objectID}`}
+            />
+          );
+        }}
+        showsVerticalScrollIndicator={false}
+      />
+    </>
   );
 };

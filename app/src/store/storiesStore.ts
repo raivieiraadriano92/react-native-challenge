@@ -37,7 +37,7 @@ export const useStoriesStore = create<StoriesStoreState>()(
       fetch: async (refresh) => {
         set((state) => ({
           ...state,
-          isFeching: true,
+          isFeching: !refresh,
           isRefreshing: !!refresh
         }));
 

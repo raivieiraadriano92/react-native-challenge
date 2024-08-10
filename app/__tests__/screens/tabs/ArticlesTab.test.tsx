@@ -40,6 +40,12 @@ jest.mock("src/store/storiesStore", () => ({
   })
 }));
 
+jest.mock("src/hooks/useInternetStatus", () => ({
+  useInternetStatus: () => ({
+    isOffline: false
+  })
+}));
+
 afterEach(() => {
   mockFetch.mockClear();
 });
