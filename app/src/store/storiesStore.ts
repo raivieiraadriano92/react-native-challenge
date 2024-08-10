@@ -46,16 +46,12 @@ export const useStoriesStore = create<StoriesStoreState>()(
 
         const query = [];
 
-        if (android) {
-          query.push("android");
-        }
-
-        if (ios) {
-          query.push("ios");
-        }
-
-        if (query.length === 0) {
+        if ((android && ios) || (!android && !ios)) {
           query.push("mobile");
+        } else if (android) {
+          query.push("android");
+        } else if (ios) {
+          query.push("ios");
         }
 
         const response = await fetchStories(query.join(","));
