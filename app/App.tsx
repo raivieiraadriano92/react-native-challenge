@@ -8,6 +8,7 @@ import {
 import * as Notifications from "expo-notifications";
 import * as SplashScreen from "expo-splash-screen";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+
 import { RootNavigator } from "src/navigation/RootNavigator";
 
 // Keep the splash screen visible while we fetch resources

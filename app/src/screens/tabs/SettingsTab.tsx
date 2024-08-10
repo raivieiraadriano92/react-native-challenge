@@ -1,5 +1,6 @@
 import { useTheme } from "@react-navigation/native";
 import { Switch, Text, View } from "react-native";
+
 import { TabScreen } from "src/navigation/types";
 import { useStoriesStore } from "src/store/storiesStore";
 

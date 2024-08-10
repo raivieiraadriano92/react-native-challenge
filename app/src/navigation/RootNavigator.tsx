@@ -1,13 +1,14 @@
 import { type FunctionComponent } from "react";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useNotificationHandler } from "src/hooks/useNotificationHandler";
-import { ArticleScreen } from "src/screens/ArticleScreen";
-import { DeletedArticlesScreen } from "src/screens/DeletedArticlesScreen";
 
 import { TabNavigator } from "./TabNavigator";
 
 import type { RootStackParamList } from "./types";
+
+import { useNotificationHandler } from "src/hooks/useNotificationHandler";
+import { ArticleScreen } from "src/screens/ArticleScreen";
+import { DeletedArticlesScreen } from "src/screens/DeletedArticlesScreen";
 
 const NativeStack = createNativeStackNavigator<RootStackParamList>();
 

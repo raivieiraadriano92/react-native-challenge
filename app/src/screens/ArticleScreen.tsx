@@ -1,4 +1,5 @@
 import WebView from "react-native-webview";
+
 import { RootStackScreen } from "src/navigation/types";
 
 export const ArticleScreen: RootStackScreen<"Article"> = ({

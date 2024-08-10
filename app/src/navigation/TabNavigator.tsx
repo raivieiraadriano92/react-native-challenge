@@ -1,10 +1,11 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+import type { RootStackScreen, TabParamList } from "./types";
+
 import { ArticlesTab } from "src/screens/tabs/ArticlesTab";
 import { FavoritesTab } from "src/screens/tabs/FavoritesTab";
 import { SettingsTab } from "src/screens/tabs/SettingsTab";
-
-import type { RootStackScreen, TabParamList } from "./types";
 
 const BottomTab = createBottomTabNavigator<TabParamList>();
 

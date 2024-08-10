@@ -1,9 +1,10 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Platform } from "react-native";
-import { fetchStories } from "src/services/api";
-import { Story } from "src/services/api/types";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+
+import { fetchStories } from "src/services/api";
+import { Story } from "src/services/api/types";
 
 type StoriesStoreState = {
   favorites: Story[];

@@ -11,8 +11,9 @@ import {
   View
 } from "react-native";
 import { Swipeable } from "react-native-gesture-handler";
-import { Story } from "src/services/api/types";
 import colors from "tailwindcss/colors";
+
+import { Story } from "src/services/api/types";
 
 type StoryRowProps = TouchableOpacityProps & {
   isFavorite?: boolean;
