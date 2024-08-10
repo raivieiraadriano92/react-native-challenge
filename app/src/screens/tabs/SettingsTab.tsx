@@ -37,12 +37,12 @@ export const SettingsTab: TabScreen<"Settings"> = () => {
           <SettingsRow
             isActive={generalStore.notificationPreferences.android}
             onValueChange={generalStore.toggleAndroid}
-            title="Enable notifications for Android"
+            title="Receive articles for Android"
           />
           <SettingsRow
             isActive={generalStore.notificationPreferences.ios}
             onValueChange={generalStore.toggleIOS}
-            title="Enable notifications for iOS"
+            title="Receive articles for iOS"
           />
         </SettingsSection>
       </View>
