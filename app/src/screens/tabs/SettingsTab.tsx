@@ -22,6 +22,7 @@ export const SettingsTab: TabScreen<"Settings"> = () => {
         <View className="flex-row items-center justify-between">
           <Text className="text-sm">Enable notifications for Android</Text>
           <Switch
+            testID="toggleAndroid"
             trackColor={{ false: "#767577", true: theme.colors.primary }}
             thumbColor={storiesStore.preferences.android ? "white" : "#f4f3f4"}
             ios_backgroundColor="#3e3e3e"
@@ -32,6 +33,7 @@ export const SettingsTab: TabScreen<"Settings"> = () => {
         <View className="flex-row items-center justify-between">
           <Text className="text-sm">Enable notifications for iOS</Text>
           <Switch
+            testID="toggleIOS"
             trackColor={{ false: "#767577", true: theme.colors.primary }}
             thumbColor={storiesStore.preferences.ios ? "white" : "#f4f3f4"}
             ios_backgroundColor="#3e3e3e"

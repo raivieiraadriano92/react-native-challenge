@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SettingsTab /> Snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "flexBasis": "0%",
+        "flexGrow": 1,
+        "flexShrink": 1,
+      },
+      {
+        "paddingBottom": 24,
+        "paddingLeft": 24,
+        "paddingRight": 24,
+        "paddingTop": 24,
+      },
+    ]
+  }
+>
+  <View>
+    <View>
+      <Text
+        style={
+          [
+            {
+              "fontWeight": "700",
+            },
+            {
+              "fontSize": 20,
+              "lineHeight": 28,
+            },
+          ]
+        }
+      >
+        Notifications
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "fontSize": 14,
+              "lineHeight": 20,
+            },
+            {
+              "color": "#a3a3a3",
+            },
+            [
+              {
+                "marginTop": 4,
+              },
+            ],
+          ]
+        }
+      >
+        Stay updated with the latest tips, tricks, and news for your Android or iOS device! Enable notifications to never miss an article that helps you get the most out of your smartphone.
+      </Text>
+    </View>
+    <View
+      style={
+        [
+          {
+            "flexDirection": "row",
+          },
+          {
+            "alignItems": "center",
+          },
+          {
+            "justifyContent": "space-between",
+          },
+          [
+            {
+              "marginTop": 12,
+            },
+          ],
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "fontSize": 14,
+              "lineHeight": 20,
+            },
+          ]
+        }
+      >
+        Enable notifications for Android
+      </Text>
+      <RCTSwitch
+        accessibilityRole="switch"
+        onChange={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        onTintColor="rgb(0, 122, 255)"
+        style={
+          [
+            {
+              "height": 31,
+              "width": 51,
+            },
+            {
+              "backgroundColor": "#3e3e3e",
+              "borderRadius": 16,
+            },
+          ]
+        }
+        testID="toggleAndroid"
+        thumbTintColor="#f4f3f4"
+        tintColor="#767577"
+        value={false}
+      />
+    </View>
+    <View
+      style={
+        [
+          {
+            "flexDirection": "row",
+          },
+          {
+            "alignItems": "center",
+          },
+          {
+            "justifyContent": "space-between",
+          },
+          [
+            {
+              "marginTop": 12,
+            },
+          ],
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "fontSize": 14,
+              "lineHeight": 20,
+            },
+          ]
+        }
+      >
+        Enable notifications for iOS
+      </Text>
+      <RCTSwitch
+        accessibilityRole="switch"
+        onChange={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        onTintColor="rgb(0, 122, 255)"
+        style={
+          [
+            {
+              "height": 31,
+              "width": 51,
+            },
+            {
+              "backgroundColor": "#3e3e3e",
+              "borderRadius": 16,
+            },
+          ]
+        }
+        testID="toggleIOS"
+        thumbTintColor="white"
+        tintColor="#767577"
+        value={true}
+      />
+    </View>
+  </View>
+</View>
+`;

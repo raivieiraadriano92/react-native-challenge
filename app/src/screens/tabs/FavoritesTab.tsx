@@ -18,6 +18,7 @@ export const FavoritesTab: TabScreen<"Favorites"> = ({ navigation }) => {
           }
           onPressFavorite={() => storiesStore.toggleFavorite(item)}
           story={item}
+          testID={`story-${item.objectID}`}
         />
       )}
       showsVerticalScrollIndicator={false}

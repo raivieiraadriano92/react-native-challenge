@@ -11,6 +11,8 @@ export const ArticlesTab: TabScreen<"Articles"> = ({ navigation }) => {
   const list = storiesStore.list.filter((story) => !story.isDeleted);
 
   useEffect(() => {
+    console.log("fetching");
+
     storiesStore.fetch();
   }, []);
 
@@ -52,6 +54,7 @@ export const ArticlesTab: TabScreen<"Articles"> = ({ navigation }) => {
             onPressDelete={() => storiesStore.toggleDeleted(item.objectID)}
             onPressFavorite={() => storiesStore.toggleFavorite(item)}
             story={item}
+            testID={`story-${item.objectID}`}
           />
         );
       }}

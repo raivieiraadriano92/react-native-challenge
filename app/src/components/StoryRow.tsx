@@ -53,6 +53,7 @@ export const StoryRow: FunctionComponent<StoryRowProps> = ({
             <TouchableOpacity
               className="bg-red-500 flex-1 h-full items-center justify-center p-6"
               onPress={onPressDelete}
+              testID="deleteButton"
             >
               <Text style={styles.deleteButtonText}>Delete</Text>
             </TouchableOpacity>
@@ -76,7 +77,10 @@ export const StoryRow: FunctionComponent<StoryRowProps> = ({
         </Text>
       </View>
       {!!onPressFavorite && (
-        <TouchableOpacity onPress={onPressFavorite}>
+        <TouchableOpacity
+          onPress={onPressFavorite}
+          testID="toogleFavoriteButton"
+        >
           <FontAwesome
             color={colors.amber[400]}
             name={isFavorite ? "star" : "star-o"}
@@ -85,7 +89,7 @@ export const StoryRow: FunctionComponent<StoryRowProps> = ({
         </TouchableOpacity>
       )}
       {!!onPressUndo && (
-        <TouchableOpacity onPress={onPressUndo}>
+        <TouchableOpacity onPress={onPressUndo} testID="undoButton">
           <Text className="font-medium text-blue-400 text-base">Undo</Text>
         </TouchableOpacity>
       )}
