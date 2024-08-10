@@ -13,6 +13,7 @@ import { Story } from "src/services/api/types";
 export type RootStackParamList = {
   Article: Pick<Story, "story_url">;
   DeletedArticles: undefined;
+  Onboarding: undefined;
   Tabs: undefined | NavigatorScreenParams<TabParamList>;
 };
 
