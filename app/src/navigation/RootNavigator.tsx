@@ -1,11 +1,7 @@
 import { type FunctionComponent } from "react";
 
-import {
-  DefaultTheme,
-  NavigationContainer,
-  Theme
-} from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useNotificationHandler } from "src/hooks/useNotificationHandler";
 import { ArticleScreen } from "src/screens/ArticleScreen";
 import { DeletedArticlesScreen } from "src/screens/DeletedArticlesScreen";
 
@@ -15,17 +11,10 @@ import type { RootStackParamList } from "./types";
 
 const NativeStack = createNativeStackNavigator<RootStackParamList>();
 
-const theme: Theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    background: "white",
-    primary: "#FF6600"
-  }
-};
+export const RootNavigator: FunctionComponent = () => {
+  useNotificationHandler();
 
-export const RootNavigator: FunctionComponent = () => (
-  <NavigationContainer theme={theme}>
+  return (
     <NativeStack.Navigator>
       <NativeStack.Screen
         component={TabNavigator}
@@ -39,5 +28,5 @@ export const RootNavigator: FunctionComponent = () => (
         options={{ title: "Deleted Articles" }}
       />
     </NativeStack.Navigator>
-  </NavigationContainer>
-);
+  );
+};
