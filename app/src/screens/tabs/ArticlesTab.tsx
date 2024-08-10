@@ -25,8 +25,6 @@ export const ArticlesTab: TabScreen<"Articles"> = ({ navigation }) => {
 
   useEffect(() => {
     if (!isOffline && !isFetched) {
-      console.log("fetching");
-
       setIsFetched(true);
 
       storiesStore.fetch();
@@ -49,8 +47,8 @@ export const ArticlesTab: TabScreen<"Articles"> = ({ navigation }) => {
 
   return (
     <>
-      {storiesStore.isFeching && (
-        <View className="p-6">
+      {storiesStore.isFetching && (
+        <View className="p-6" testID="isFetchingIndicator">
           <ActivityIndicator />
         </View>
       )}

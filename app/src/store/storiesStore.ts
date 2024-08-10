@@ -7,7 +7,7 @@ import { createJSONStorage, persist } from "zustand/middleware";
 
 type StoriesStoreState = {
   favorites: Story[];
-  isFeching: boolean;
+  isFetching: boolean;
   isRefreshing: boolean;
   list: Story[];
   preferences: {
@@ -28,7 +28,7 @@ export const useStoriesStore = create<StoriesStoreState>()(
     (set, get) => ({
       favorites: [],
       list: [],
-      isFeching: false,
+      isFetching: false,
       isRefreshing: false,
       preferences: {
         android: Platform.OS === "android",

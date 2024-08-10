@@ -32,6 +32,7 @@ const mockDeletedStory: Story = {
 
 jest.mock("src/store/storiesStore", () => ({
   useStoriesStore: () => ({
+    isFetching: true,
     favorites: [],
     list: [mockStory, mockDeletedStory],
     fetch: mockFetch,
@@ -51,6 +52,12 @@ afterEach(() => {
 });
 
 describe("<ArticlesTab />", () => {
+  test("should render an ActivityIndicator when isFetching is true", () => {
+    render(<ArticlesTab navigation={mockNavigationProps} />);
+
+    expect(screen.getByTestId("isFetchingIndicator")).toBeTruthy();
+  });
+
   test("should not render deleted articles", () => {
     render(<ArticlesTab navigation={mockNavigationProps} />);
 

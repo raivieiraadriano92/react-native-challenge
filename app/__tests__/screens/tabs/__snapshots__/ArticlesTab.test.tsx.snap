@@ -1,316 +1,241 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ArticlesTab /> Snapshot 1`] = `
-<RCTScrollView
-  data={
-    [
-      {
-        "author": "toomuchtodo",
-        "created_at": "2024-08-08T19:37:08Z",
-        "created_at_i": 1723145828,
-        "isDeleted": false,
-        "objectID": "41195352",
-        "story_title": "China's Real Economic Crisis",
-        "story_url": "https://www.foreignaffairs.com/china/chinas-real-economic-crisis",
-      },
-    ]
-  }
-  getItem={[Function]}
-  getItemCount={[Function]}
-  keyExtractor={[Function]}
-  onContentSizeChange={[Function]}
-  onLayout={[Function]}
-  onMomentumScrollBegin={[Function]}
-  onMomentumScrollEnd={[Function]}
-  onScroll={[Function]}
-  onScrollBeginDrag={[Function]}
-  onScrollEndDrag={[Function]}
-  refreshControl={
-    <RefreshControlMock
-      onRefresh={[Function]}
-    />
-  }
-  removeClippedSubviews={false}
-  renderItem={[Function]}
-  scrollEventThrottle={0.0001}
-  showsVerticalScrollIndicator={false}
-  stickyHeaderIndices={[]}
-  viewabilityConfigCallbackPairs={[]}
->
-  <RCTRefreshControl />
-  <View>
-    <View
-      onFocusCapture={[Function]}
-      onLayout={[Function]}
-      style={null}
-    >
+[
+  <View
+    style={
+      [
+        {
+          "paddingBottom": 24,
+          "paddingLeft": 24,
+          "paddingRight": 24,
+          "paddingTop": 24,
+        },
+      ]
+    }
+    testID="isFetchingIndicator"
+  >
+    <ActivityIndicator />
+  </View>,
+  <RCTScrollView
+    data={
+      [
+        {
+          "author": "toomuchtodo",
+          "created_at": "2024-08-08T19:37:08Z",
+          "created_at_i": 1723145828,
+          "isDeleted": false,
+          "objectID": "41195352",
+          "story_title": "China's Real Economic Crisis",
+          "story_url": "https://www.foreignaffairs.com/china/chinas-real-economic-crisis",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <RefreshControlMock
+        onRefresh={[Function]}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    showsVerticalScrollIndicator={false}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
+  >
+    <RCTRefreshControl />
+    <View>
       <View
-        collapsable={false}
-        handlerTag={11}
-        handlerType="PanGestureHandler"
-        onGestureHandlerEvent={[Function]}
-        onGestureHandlerStateChange={[Function]}
+        onFocusCapture={[Function]}
         onLayout={[Function]}
-        style={
-          {
-            "overflow": "hidden",
-          }
-        }
+        style={null}
       >
         <View
           collapsable={false}
+          handlerTag={13}
+          handlerType="PanGestureHandler"
+          onGestureHandlerEvent={[Function]}
+          onGestureHandlerStateChange={[Function]}
+          onLayout={[Function]}
           style={
             {
-              "bottom": 0,
-              "flexDirection": "row-reverse",
-              "left": 0,
-              "position": "absolute",
-              "right": 0,
-              "top": 0,
-              "transform": [
-                {
-                  "translateX": -10000,
-                },
-              ],
+              "overflow": "hidden",
             }
           }
         >
           <View
+            collapsable={false}
             style={
-              [
-                {
-                  "backgroundColor": "#e5e5e5",
-                },
-                {
-                  "flexBasis": "0%",
-                  "flexGrow": 1,
-                  "flexShrink": 1,
-                },
-                {
-                  "flexDirection": "row",
-                },
-                {
-                  "alignItems": "center",
-                },
-              ]
+              {
+                "bottom": 0,
+                "flexDirection": "row-reverse",
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "transform": [
+                  {
+                    "translateX": -10000,
+                  },
+                ],
+              }
             }
           >
             <View
               style={
                 [
                   {
+                    "backgroundColor": "#e5e5e5",
+                  },
+                  {
                     "flexBasis": "0%",
                     "flexGrow": 1,
                     "flexShrink": 1,
                   },
                   {
-                    "paddingBottom": 24,
-                    "paddingLeft": 24,
-                    "paddingRight": 24,
-                    "paddingTop": 24,
+                    "flexDirection": "row",
+                  },
+                  {
+                    "alignItems": "center",
                   },
                 ]
-              }
-            >
-              <Text
-                style={
-                  [
-                    {
-                      "fontWeight": "700",
-                    },
-                    {
-                      "color": "#737373",
-                    },
-                    {
-                      "fontSize": 18,
-                      "lineHeight": 28,
-                    },
-                  ]
-                }
-              >
-                Are you sure?
-              </Text>
-            </View>
-            <View
-              collapsable={false}
-              style={
-                {
-                  "opacity": 0,
-                }
               }
             >
               <View
-                accessibilityState={
-                  {
-                    "busy": undefined,
-                    "checked": undefined,
-                    "disabled": undefined,
-                    "expanded": undefined,
-                    "selected": undefined,
-                  }
-                }
-                accessibilityValue={
-                  {
-                    "max": undefined,
-                    "min": undefined,
-                    "now": undefined,
-                    "text": undefined,
-                  }
-                }
-                accessible={true}
-                collapsable={false}
-                focusable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
                 style={
-                  {
-                    "alignItems": "center",
-                    "backgroundColor": "#ef4444",
-                    "flexBasis": "0%",
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                    "height": "100%",
-                    "justifyContent": "center",
-                    "opacity": 1,
-                    "paddingBottom": 24,
-                    "paddingLeft": 24,
-                    "paddingRight": 24,
-                    "paddingTop": 24,
-                  }
+                  [
+                    {
+                      "flexBasis": "0%",
+                      "flexGrow": 1,
+                      "flexShrink": 1,
+                    },
+                    {
+                      "paddingBottom": 24,
+                      "paddingLeft": 24,
+                      "paddingRight": 24,
+                      "paddingTop": 24,
+                    },
+                  ]
                 }
-                testID="deleteButton"
               >
                 <Text
                   style={
-                    {
-                      "color": "#fcfcfc",
-                      "fontWeight": "bold",
-                      "padding": 3,
-                    }
+                    [
+                      {
+                        "fontWeight": "700",
+                      },
+                      {
+                        "color": "#737373",
+                      },
+                      {
+                        "fontSize": 18,
+                        "lineHeight": 28,
+                      },
+                    ]
                   }
                 >
-                  Delete
+                  Are you sure?
                 </Text>
               </View>
+              <View
+                collapsable={false}
+                style={
+                  {
+                    "opacity": 0,
+                  }
+                }
+              >
+                <View
+                  accessibilityState={
+                    {
+                      "busy": undefined,
+                      "checked": undefined,
+                      "disabled": undefined,
+                      "expanded": undefined,
+                      "selected": undefined,
+                    }
+                  }
+                  accessibilityValue={
+                    {
+                      "max": undefined,
+                      "min": undefined,
+                      "now": undefined,
+                      "text": undefined,
+                    }
+                  }
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    {
+                      "alignItems": "center",
+                      "backgroundColor": "#ef4444",
+                      "flexBasis": "0%",
+                      "flexGrow": 1,
+                      "flexShrink": 1,
+                      "height": "100%",
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 24,
+                      "paddingLeft": 24,
+                      "paddingRight": 24,
+                      "paddingTop": 24,
+                    }
+                  }
+                  testID="deleteButton"
+                >
+                  <Text
+                    style={
+                      {
+                        "color": "#fcfcfc",
+                        "fontWeight": "bold",
+                        "padding": 3,
+                      }
+                    }
+                  >
+                    Delete
+                  </Text>
+                </View>
+              </View>
             </View>
+            <View
+              onLayout={[Function]}
+            />
           </View>
           <View
-            onLayout={[Function]}
-          />
-        </View>
-        <View
-          collapsable={false}
-          handlerTag={12}
-          handlerType="TapGestureHandler"
-          onGestureHandlerEvent={[Function]}
-          onGestureHandlerStateChange={[Function]}
-          pointerEvents="auto"
-          style={
-            {
-              "transform": [
-                {
-                  "translateX": -0,
-                },
-              ],
-            }
-          }
-        >
-          <View
-            accessibilityState={
-              {
-                "busy": undefined,
-                "checked": undefined,
-                "disabled": undefined,
-                "expanded": undefined,
-                "selected": undefined,
-              }
-            }
-            accessibilityValue={
-              {
-                "max": undefined,
-                "min": undefined,
-                "now": undefined,
-                "text": undefined,
-              }
-            }
-            accessible={true}
             collapsable={false}
-            focusable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
+            handlerTag={14}
+            handlerType="TapGestureHandler"
+            onGestureHandlerEvent={[Function]}
+            onGestureHandlerStateChange={[Function]}
+            pointerEvents="auto"
             style={
               {
-                "backgroundColor": "#fff",
-                "borderBottomColor": "#f5f5f5",
-                "borderBottomWidth": 1,
-                "borderLeftColor": "#f5f5f5",
-                "borderRightColor": "#f5f5f5",
-                "borderTopColor": "#f5f5f5",
-                "flexDirection": "row",
-                "opacity": 1,
-                "paddingBottom": 24,
-                "paddingLeft": 24,
-                "paddingRight": 24,
-                "paddingTop": 24,
+                "transform": [
+                  {
+                    "translateX": -0,
+                  },
+                ],
               }
             }
-            testID="story-41195352"
           >
-            <View
-              style={
-                [
-                  {
-                    "flexBasis": "0%",
-                    "flexGrow": 1,
-                    "flexShrink": 1,
-                  },
-                ]
-              }
-            >
-              <Text
-                style={
-                  [
-                    {
-                      "fontWeight": "500",
-                    },
-                    {
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                    },
-                    {
-                      "color": "#FF6600",
-                    },
-                  ]
-                }
-              >
-                China's Real Economic Crisis
-              </Text>
-              <Text
-                style={
-                  [
-                    {
-                      "fontSize": 14,
-                      "lineHeight": 20,
-                    },
-                    {
-                      "color": "#a3a3a3",
-                    },
-                  ]
-                }
-              >
-                toomuchtodo - 1 day
-              </Text>
-            </View>
             <View
               accessibilityState={
                 {
@@ -341,38 +266,130 @@ exports[`<ArticlesTab /> Snapshot 1`] = `
               onStartShouldSetResponder={[Function]}
               style={
                 {
-                  "marginLeft": 24,
+                  "backgroundColor": "#fff",
+                  "borderBottomColor": "#f5f5f5",
+                  "borderBottomWidth": 1,
+                  "borderLeftColor": "#f5f5f5",
+                  "borderRightColor": "#f5f5f5",
+                  "borderTopColor": "#f5f5f5",
+                  "flexDirection": "row",
                   "opacity": 1,
+                  "paddingBottom": 24,
+                  "paddingLeft": 24,
+                  "paddingRight": 24,
+                  "paddingTop": 24,
                 }
               }
-              testID="toogleFavoriteButton"
+              testID="story-41195352"
             >
-              <Text
-                allowFontScaling={false}
-                selectable={false}
+              <View
                 style={
                   [
                     {
-                      "color": "#fbbf24",
-                      "fontSize": 24,
+                      "flexBasis": "0%",
+                      "flexGrow": 1,
+                      "flexShrink": 1,
                     },
-                    undefined,
-                    {
-                      "fontFamily": "FontAwesome",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    {},
                   ]
                 }
               >
-                
-              </Text>
+                <Text
+                  style={
+                    [
+                      {
+                        "fontWeight": "500",
+                      },
+                      {
+                        "fontSize": 16,
+                        "lineHeight": 24,
+                      },
+                      {
+                        "color": "#FF6600",
+                      },
+                    ]
+                  }
+                >
+                  China's Real Economic Crisis
+                </Text>
+                <Text
+                  style={
+                    [
+                      {
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                      },
+                      {
+                        "color": "#a3a3a3",
+                      },
+                    ]
+                  }
+                >
+                  toomuchtodo - 1 day
+                </Text>
+              </View>
+              <View
+                accessibilityState={
+                  {
+                    "busy": undefined,
+                    "checked": undefined,
+                    "disabled": undefined,
+                    "expanded": undefined,
+                    "selected": undefined,
+                  }
+                }
+                accessibilityValue={
+                  {
+                    "max": undefined,
+                    "min": undefined,
+                    "now": undefined,
+                    "text": undefined,
+                  }
+                }
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "marginLeft": 24,
+                    "opacity": 1,
+                  }
+                }
+                testID="toogleFavoriteButton"
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
+                    [
+                      {
+                        "color": "#fbbf24",
+                        "fontSize": 24,
+                      },
+                      undefined,
+                      {
+                        "fontFamily": "FontAwesome",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
             </View>
           </View>
         </View>
       </View>
     </View>
-  </View>
-</RCTScrollView>
+  </RCTScrollView>,
+]
 `;
