@@ -49,13 +49,19 @@ export const requestNotificationsPermissions = async ({
 export const displayNotification = (story: Story) =>
   requestNotificationsPermissions({
     onGranted: () => {
-      const request = {
+      const request: Notifications.NotificationRequestInput = {
         content: {
           title: story.story_title,
-          body: `By ${story.author}`,
-          data: { url: story.story_url }
+          body: `By ${story.author}`
+          // data: {
+          //   url: story.story_url
+          // }
         },
-        identifier: story.objectID,
+        // I figured out later that expo-notifications has a bug which while using content.data
+        // so to fix this I used request.identifier to store the story_url
+        // [expo-notifications] notification.request.content.data is null in push notifications setup #27503
+        // https://github.com/expo/expo/issues/27503
+        identifier: story.story_url,
         trigger: null //{ seconds: 10 }
       };
 
@@ -119,8 +125,6 @@ export const registerNotificationTask = async () => {
     console.log("Background fetch registered", response);
 
     return response;
-
-    console.log("Background fetch already registered");
   } catch (error) {
     console.error("Failed to register background fetch", error);
   }

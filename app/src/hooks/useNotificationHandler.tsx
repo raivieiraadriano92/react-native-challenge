@@ -17,17 +17,19 @@ export const useNotificationHandler = () => {
     );
 
     const responseListener =
-      Notifications.addNotificationResponseReceivedListener((response) => {
-        console.log("response", JSON.stringify(response));
+      Notifications.addNotificationResponseReceivedListener(
+        async (response) => {
+          console.log("response", JSON.stringify(response));
 
-        const story_url = response?.notification?.request?.content?.data?.url;
+          const identifier = response.notification.request.identifier;
 
-        if (story_url) {
-          navigation.navigate("Article", {
-            story_url
-          });
+          if (identifier.includes("https://")) {
+            navigation.navigate("Article", {
+              story_url: identifier
+            });
+          }
         }
-      });
+      );
 
     return () => {
       Notifications.removeNotificationSubscription(notificationListener);
