@@ -3,6 +3,9 @@ import { useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import * as Notifications from "expo-notifications";
 
+/**
+ * @todo implement notification handler using React Navigation's deep linking
+ */
 export const useNotificationHandler = () => {
   const navigation = useNavigation();
 

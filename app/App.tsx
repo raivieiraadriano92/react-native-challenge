@@ -10,6 +10,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { RootNavigator } from "src/navigation/RootNavigator";
+import { createNotificationTask } from "src/services/notifications";
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -21,6 +22,8 @@ Notifications.setNotificationHandler({
     shouldSetBadge: true
   })
 });
+
+createNotificationTask();
 
 const theme: Theme = {
   ...DefaultTheme,
