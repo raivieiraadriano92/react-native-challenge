@@ -1,6 +1,7 @@
-import { type FunctionComponent } from "react";
+import { useEffect, useState, type FunctionComponent } from "react";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import * as SplashScreen from "expo-splash-screen";
 
 import { TabNavigator } from "./TabNavigator";
 
@@ -20,6 +21,21 @@ export const RootNavigator: FunctionComponent = () => {
   const generalStore = useGeneralStore();
 
   const initialRouteName = generalStore.isFirstLaunch ? "Onboarding" : "Tabs";
+
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    // delay to load persisted state from local storage
+    setTimeout(() => {
+      setIsReady(true);
+
+      SplashScreen.hideAsync();
+    }, 500);
+  }, []);
+
+  if (!isReady) {
+    return null;
+  }
 
   return (
     <NativeStack.Navigator initialRouteName={initialRouteName}>

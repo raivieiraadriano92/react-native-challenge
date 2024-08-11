@@ -37,7 +37,7 @@ This project includes a background fetch task for handling notifications. By def
 
 ## Global State Management with Zustand
 
-This project uses [Zustand](https://github.com/pmndrs/zustand?tab=readme-ov-file#why-zustand-over-redux) for global state management. Here are some reasons why Zustand was chosen:
+This project uses [Zustand](https://github.com/pmndrs/zustand) for global state management. Here are some reasons why Zustand was chosen:
 
 ### Why Zustand Over Redux?
 

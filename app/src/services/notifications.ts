@@ -5,6 +5,8 @@ import * as TaskManager from "expo-task-manager";
 import { fetchStories } from "./api";
 import { Story } from "./api/types";
 
+import { useGeneralStore } from "src/store/generalStore";
+
 type RequestNotificationsPermissionsParams = {
   onDenied?(): void;
   onGranted?(): void;
@@ -46,8 +48,8 @@ export const requestNotificationsPermissions = async ({
 
 export const displayNotification = (story: Story) =>
   requestNotificationsPermissions({
-    onGranted: () =>
-      Notifications.scheduleNotificationAsync({
+    onGranted: () => {
+      const request = {
         content: {
           title: story.story_title,
           body: `By ${story.author}`,
@@ -55,7 +57,12 @@ export const displayNotification = (story: Story) =>
         },
         identifier: story.objectID,
         trigger: null //{ seconds: 10 }
-      })
+      };
+
+      console.log("Notification request: ", request);
+
+      Notifications.scheduleNotificationAsync(request);
+    }
   });
 
 const TASK_NAME = "notification-task";
@@ -65,9 +72,25 @@ export const createNotificationTask = () =>
   TaskManager.defineTask(TASK_NAME, async () => {
     console.log("Background fetch task started");
 
+    const { android, ios } = useGeneralStore.getState().notificationPreferences;
+
+    console.log("Notification preferences: ", { android, ios });
+
+    const query = [];
+
+    if ((android && ios) || (!android && !ios)) {
+      query.push("mobile");
+    } else if (android) {
+      query.push("android");
+    } else if (ios) {
+      query.push("ios");
+    }
+
     const response = await fetchStories("mobile");
 
     const story = response.data.hits[0];
+
+    console.log("Notification Story: ", story);
 
     const { status } = await Notifications.getPermissionsAsync();
 
@@ -81,11 +104,13 @@ export const createNotificationTask = () =>
 
 export const registerNotificationTask = async () => {
   try {
+    await unregisterNotificationTask();
+
     const isRegistered = await TaskManager.isTaskRegisteredAsync(TASK_NAME);
 
     if (!isRegistered) {
       const response = await BackgroundFetch.registerTaskAsync(TASK_NAME, {
-        minimumInterval: 60 * 10, // 10 minutes
+        minimumInterval: 10, // seconds
         stopOnTerminate: false, // android only
         startOnBoot: true // android only
       });

@@ -39,16 +39,12 @@ const theme: Theme = {
   }
 };
 
-const App: FunctionComponent = () => {
-  const onReady = async () => SplashScreen.hideAsync();
-
-  return (
-    <GestureHandlerRootView className="flex-1">
-      <NavigationContainer onReady={onReady} theme={theme}>
-        <RootNavigator />
-      </NavigationContainer>
-    </GestureHandlerRootView>
-  );
-};
+const App: FunctionComponent = () => (
+  <GestureHandlerRootView className="flex-1">
+    <NavigationContainer theme={theme}>
+      <RootNavigator />
+    </NavigationContainer>
+  </GestureHandlerRootView>
+);
 
 export default App;

@@ -20,7 +20,7 @@ export const useNotificationHandler = () => {
       Notifications.addNotificationResponseReceivedListener((response) => {
         console.log("response", JSON.stringify(response));
 
-        const story_url = response.notification.request.content.data.url;
+        const story_url = response?.notification?.request?.content?.data?.url;
 
         if (story_url) {
           navigation.navigate("Article", {
