@@ -14,9 +14,7 @@
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "UIBackgroundModes": [
-          "fetch"
-        ]
+        "UIBackgroundModes": ["location", "fetch", "remote-notification"]
       },
       "bundleIdentifier": "com.raivieiraadriano92.hackernews"
     },
