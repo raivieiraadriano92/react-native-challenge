@@ -63,6 +63,8 @@ const TASK_NAME = "notification-task";
 // Note: This needs to be called in the global scope (e.g outside of your React components)
 export const createNotificationTask = () =>
   TaskManager.defineTask(TASK_NAME, async () => {
+    console.log("Background fetch task started");
+
     const response = await fetchStories("mobile");
 
     const story = response.data.hits[0];
