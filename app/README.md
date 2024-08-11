@@ -22,6 +22,8 @@ $ npx expo run:android
 $ npx expo run:ios
 ```
 
+https://github.com/user-attachments/assets/4dcabe97-548f-4ad0-9b54-83a6e41baaa2
+
 ## Running Tests
 
 To run the tests, use the following command:
