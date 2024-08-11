@@ -79,15 +79,21 @@ export const createNotificationTask = () =>
 
 export const registerNotificationTask = async () => {
   try {
-    const response = await BackgroundFetch.registerTaskAsync(TASK_NAME, {
-      minimumInterval: 60 * 10, // 10 minutes
-      stopOnTerminate: false, // android only
-      startOnBoot: true // android only
-    });
+    const isRegistered = await TaskManager.isTaskRegisteredAsync(TASK_NAME);
 
-    console.log("Background fetch registered", response);
+    if (!isRegistered) {
+      const response = await BackgroundFetch.registerTaskAsync(TASK_NAME, {
+        minimumInterval: 60 * 10, // 10 minutes
+        stopOnTerminate: false, // android only
+        startOnBoot: true // android only
+      });
 
-    return response;
+      console.log("Background fetch registered", response);
+
+      return response;
+    }
+
+    console.log("Background fetch already registered");
   } catch (error) {
     console.error("Failed to register background fetch", error);
   }
