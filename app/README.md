@@ -12,8 +12,14 @@ To get started, you'll need to set up your development environment for Expo proj
 Once your environment is set up, you can run the project using the following commands:
 
 ```bash
-npx expo run:android
-npx expo run:ios
+$ git clone https://github.com/reigncl/Rai-RN-Test
+$ cd Rai-RN-Test/app
+
+$ yarn
+
+$ npx expo run:android
+# or
+$ npx expo run:ios
 ```
 
 ## Running Tests
